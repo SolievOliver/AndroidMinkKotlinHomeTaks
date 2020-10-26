@@ -26,7 +26,7 @@ object KotlinWorkshop4 {
 
     private fun testBus() {
         // TODO 3: Создайте экземпляр класса "Bus".
-         val bus = KotlinWorkshop4.Bus(12)
+         val bus = Bus(12)
 
         // TODO 4: Отправь автобус к пункту назначения и проверь, что выведется в консоль.
         bus.drive()

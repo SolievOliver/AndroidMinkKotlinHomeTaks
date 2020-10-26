@@ -27,15 +27,34 @@ class Bicycle: Transport(1) {
 //  См. ниже.
 // ? Имена классов и файлов Котлин принято называть с заглавной буквы, в формате "camelCase".
 // Например: "SomeLongClassName"
-//interface ...
+interface SignalType{
+    fun signal()
+}
 
 // TODO 2: Создай свои собственные классы, например "Bus" и "Car".
 //  Эти классы не будут полностью написаны с нуля, они должны расширять общий класс "Transport",
 //  и дополнительно реализовывать придуманный тобой интерфейс.
 // ? Класс может наследовать только один класс, но реализовывать несколько интерфейсов, например:
 // class Kitty(): Cat, Cuteable, Sleepable, Furryable {}
-//class Bus ...
-//class Car ...
+class Bus :Transport(10),SignalType{
+    override fun signal() {
+        println("Bum Bum")
+    }
+
+    override fun drive() {
+        println("Drive a bus")
+    }
+}
+class Car: Transport(4),SignalType{
+    override fun drive() {
+        println("Drive a Car")
+    }
+
+    override fun signal() {
+        println("Geeeeeeen")
+    }
+
+}
 
 // TODO 3: Протестируй работоспособность твоего транспорта.
 object VehiclesTest {
@@ -50,17 +69,22 @@ object VehiclesTest {
 
     private fun testBus() {
         println("Testing how bus drives...")
-//        val bus = ...
+        val bus = Bus()
+        bus.drive()
+        bus.signal()
     }
 
     private fun testCar() {
         println("Testing how car drives...")
-//        val car = ...
+        val car = Car();
+        car.drive()
+        car.signal()
     }
 
     private fun testBicycle() {
         println("Testing how bicycle drives...")
-//        ...
+        val bicycle = Bicycle();
+        bicycle.drive()
     }
 
 
