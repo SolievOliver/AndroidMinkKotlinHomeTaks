@@ -10,10 +10,10 @@ interface Driveable {
 
 // Объявляем класс пассажирского транспорта вцелом.
 // Придадим такому транспорту свойство перемещаться под управлением водителя.
-abstract class Transport(protected var passengersCount: Int): Driveable
+abstract class Transport: Driveable
 
 // Создадим реальный транспорт: "Велосипед". Он может управляться водителем и перевозит одного пассажира.
-class Bicycle: Transport(1) {
+class Bicycle: Transport() {
     override fun drive() {
         println("Ride a bicycle.")
     }
@@ -36,7 +36,7 @@ interface SignalType{
 //  и дополнительно реализовывать придуманный тобой интерфейс.
 // ? Класс может наследовать только один класс, но реализовывать несколько интерфейсов, например:
 // class Kitty(): Cat, Cuteable, Sleepable, Furryable {}
-class Bus :Transport(10),SignalType{
+class Bus :Transport(),SignalType{
     override fun signal() {
         println("Bum Bum")
     }
@@ -45,7 +45,7 @@ class Bus :Transport(10),SignalType{
         println("Drive a bus")
     }
 }
-class Car: Transport(4),SignalType{
+class Car: Transport(),SignalType{
     override fun drive() {
         println("Drive a Car")
     }
