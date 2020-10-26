@@ -33,14 +33,15 @@ object KotlinWorkshop1 {
         //  Присвой "notNullUserString" значение из "nullableElvisString".
         //  Если "nullableElvisString" равно null, сделай значение "notNullUserString" равным значению пустой строки "emptyString".
         //  Исправить присвоение используя Элвис-оператор "?:".
-//        var notNullUserString: String =
-//        println("Строка результат равна $notNullUserString")
+        var notNullUserString: String = nullableElvisString ?: emptyString
+        println("Строка результат пустая $notNullUserString")
+
 
         // TODO 2: Раскомментируй.
         //  По факту мы знаем, что значение "nullableAssertionString" не равно null (см. строку 17).
         //  Сделай принудительное присвоение используя !! оператор.
-//        notNullUserString =
-//        println("Строка результат равна $notNullUserString")
+        notNullUserString = nullableAssertionString!!
+        println("Строка результат равна $notNullUserString")
 
 
         /* Бонусные задания */
@@ -51,15 +52,14 @@ object KotlinWorkshop1 {
         val notNullAlternative = 0
         val firstNumber: Int? = 10
         val secondNumber: Int? = 20
-//        val sum : Int? =
-//        println("Сумма равна {$sum}")
-
+        val sum: Int? = firstNumber?.plus(secondNumber ?: firstNumber)
+        println("Сумма равна {$sum}")
 
         // TODO 4: Раскомментируй. Сохрани строку введённую с клавиатуры в переменную "stringInput".
         // Когда программа запущена, ввод с клавиатуры ожидается внизу, во вкладке RUN.
         // Кликни в зоне открытого окна и введи строку.
-//        print("Пожалуйста введите строку: ")
-//        val stringInput: String? = MyScanner.scan.next() // <--- string input 1
+        print("Пожалуйста введите строку: ")
+        val stringInput: String? = MyScanner.scan.next() // <--- string input 1
 
         // TODO 5: Раскомментируй.
         //  Сохрани значения чисел введённух с клавиатуры в переменные "firstIntInput" и "secondIntInput".
@@ -67,12 +67,14 @@ object KotlinWorkshop1 {
         //  Используй проверку на null '?', для сложения используй функцию '.plus()'. Внутри '.plus()' используй '?:'.
         // Когда программа запущена, ввод с клавиатуры ожидается внизу, во вкладке RUN.
         // Кликни в зоне открытого окна и введи строку.
-//        print("Пожалуйста введите первое число: ")
-//        val firstIntInput: Int? = MyScanner.scan.nextInt() // <--- вводим первое число
-//        print("Пожалуйста введите второе число: ")
-//        val secondIntInput: Int? = MyScanner.scan.nextInt() // <--- вводим второе число
-//        val sumIntInputs : Int? = firstIntInput?.plus(secondIntInput ?: null) // <--- делаем замену потенциального 'null' значением по умолчанию
-//        println("Исходная строка: $stringInput, Сумма чисел: $sumIntInputs")
+        print("Пожалуйста введите первое число: ")
+        val firstIntInput: Int? = day_1_kotlin.langrus.solutions.MyScanner.scan.nextInt() // <--- вводим первое число
+        print("Пожалуйста введите второе число: ")
+        val secondIntInput: Int? = day_1_kotlin.langrus.solutions.MyScanner.scan.nextInt() // <--- вводим второе число
+        val sumIntInputs: Int? = firstIntInput?.plus(
+                secondIntInput ?: notNullAlternative
+        ) // <--- делаем замену потенциального 'null' значением по умолчанию
+        println("Исходная строка: $stringInput, Сумма чисел: $sumIntInputs")
 
 
         /* Примеры */
