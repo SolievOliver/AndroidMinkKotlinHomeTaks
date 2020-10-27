@@ -21,8 +21,6 @@ object KotlinWorkshop7 {
             "Сегодня был прекрасный день"
         )
 
-
-
         /* Рабочая зона */
 
         // TODO 1: Распечатай "poem" в двух вариантах:
@@ -53,17 +51,19 @@ object KotlinWorkshop7 {
             "Minsk" to 4
         )
 
-
-
         /* Бонусные задания */
 
         // TODO 3. В погодную карту "weatherMap" добавь погоду в "Kiev" и в "Tel-Aviv".
-        weatherMap.put("Kiev",10)
-        weatherMap.put("Tel-Ativ",10)
+        weatherMap["Kiev"] = 10
+        weatherMap["Tel-Ativ"] = 10
 
         // TODO 4. Отфильтруй и выведи в консоль города с погодой выше +0С.
         //  Вызывай операторы один за другим, в виде "цепи" (chaining operators).
-//        weatherMap
+        weatherMap.filter {
+            it.value > 0
+        }.forEach {
+            println("${it.key}'s  temperature is ${it.value}")
+        }
 
     }
 }
