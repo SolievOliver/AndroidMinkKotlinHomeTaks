@@ -7,7 +7,11 @@ package day_1_kotlin.langrus.assignments
 /* Рабочая зона */
 
 // TODO 1: Добавь в data class 2-4 свойства.
- data class VideoGame(val name:String,val year:Int,val type:String,val isModern:Boolean)
+ data class VideoGame(
+    val name:String,
+    val year:Int,
+    val type:Genre,
+    val isModern:Boolean)
 
 // TODO 2: Создай объект "VideoGamesTest", который будет использоваться для тестирования игр.
 object VideoGamesTest {
@@ -17,7 +21,7 @@ object VideoGamesTest {
     fun main(args: Array<String>)  {
         // TODO 3: Создай экземпляр класса "VideoGame".
         //  Создай копию игры с помощью функции ата класса ".copy()", сохрани копию в другой переменной.
-         val game = VideoGame("Ping dock",2020,"Shooter",true)
+         val game = VideoGame("Ping dock",2020,Genre.SHOOTER,true)
          val copy = game.copy()
 
         // TODO 4: Выведи в консоль результат сравнения игры и её копии, используя оператор сравнения "==".
@@ -26,8 +30,8 @@ object VideoGamesTest {
         println("Objects are equal $equal")
 
         // TODO 5: Создай массив игр. В момент создания, наполни его несколькими играми и массив в консоль.
-        val games = arrayOf(game, copy, VideoGame("Crash cars",2015,"Shooter",false),
-                VideoGame("Ping pong",1999,"*I dont know",false))
+        val games = arrayOf(game, copy, VideoGame("Crash cars",2015,Genre.SHOOTER,false),
+                VideoGame("Ping pong",1999,Genre.SPORTS,false))
         games.forEach {
             println(it.toString())
         }
@@ -42,13 +46,11 @@ object VideoGamesTest {
 //  Добавь его, как новое свойство класса "VideoGame".
 //  Поправь созданные сущности видеоигр в коде коде воркшопа.
 //  Запусти выполнение функции "main()" и посмотри результат.
-/*
-... Genre {
-    ...,
-    ...,
-    ...
+enum class Genre {
+    SHOOTER,
+    SPORTS,
+    RACING
 }
-* */
 
 // TODO 7: Добавь новое свойство класса "VideoGame", присвой ему значение "по-умолчанию".
 //  Как ты можешь убедиться, новое свойство со значением "по-умолчанию" не требует делать исправлений в таком коде.

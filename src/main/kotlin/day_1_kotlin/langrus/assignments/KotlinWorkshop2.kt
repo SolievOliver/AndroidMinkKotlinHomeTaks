@@ -43,8 +43,6 @@ object KotlinWorkshop2 {
             val userInput: Int = scanner.nextInt()
             if (userInput == randomNumber) {
                 println("Поздравляю! Задуманное число равно $randomNumber!")
-                break
-
             } else if (userInput > randomNumber) {
                 println("Ваше число больше задуманного, пожалуйста продолжаем.")
 
